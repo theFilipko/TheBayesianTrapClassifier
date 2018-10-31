@@ -1,4 +1,5 @@
 import pandas
+import numpy
 import tkinter
 import operator
 from tkinter import filedialog
@@ -16,6 +17,7 @@ class App:
         self.categories = None
         self.classes = None
         self.classes_counts = None
+        self.numeric_columns = None
 
         self.initial_button_load_data = tkinter.Button(self.window, width=50, height=10,
                                                        text="Press to load data", command=self.load_data)
@@ -83,6 +85,8 @@ class App:
 
         # print the categorical table
         cat_tab = pandas.DataFrame()
+        # find numerical columns
+        self.numeric_columns = self.data.applymap(numpy.isreal).all().to_dict()
         i = 1
         for cd in self.cat_data:
             cat_tab[cd] = pandas.Series(self.cat_data[cd].cat.categories)
@@ -92,8 +96,10 @@ class App:
             entry = tkinter.Entry(self.entry_frame)
             entry.grid(row=i, column=2)
             self.entries.append(entry)
-            tkinter.Radiobutton(self.entry_frame, variable=self.rb, value=cd,
-                                anchor=tkinter.CENTER).grid(row=i, column=3)
+            # do not add radio button for numeric values
+            if self.numeric_columns[cd] is False:
+                tkinter.Radiobutton(self.entry_frame, variable=self.rb, value=cd,
+                                    anchor=tkinter.CENTER).grid(row=i, column=3)
             i += 1
 
         self.categorical_table_text_box.insert(tkinter.INSERT, cat_tab.to_string())
@@ -120,18 +126,45 @@ class App:
 
         classes = self.cat_data[to_classify].cat.categories
         classes_counts = self.cat_data[to_classify].value_counts()
+
+        # parametrisation of numerical data
+        param_columns = ['A']
+        param_columns.extend(classes.tolist())
+        mu = pandas.DataFrame(columns=param_columns)
+        sigma = pandas.DataFrame(columns=param_columns)
+        for column in self.numeric_columns.items():
+            # select numeric columns
+            if column[1] is True:
+                row_mu = [column[0]]
+                row_sigma = [column[0]]
+                for c in classes:
+                    # select data for the class
+                    datum = self.data[self.data[to_classify] == c][column[0]]
+                    # compute mean
+                    m = sum(datum) / len(datum)
+                    row_mu.append(m)
+                    # compute variance (unbiased)
+                    row_sigma.append(sum(numpy.power((datum - m), 2)) / (len(datum) - 1))
+                mu.loc[len(mu)] = row_mu
+                sigma.loc[len(sigma)] = row_sigma
+
         hypothesis = dict()
         for klass in classes:
 
-            # ''' prior probability '''
+            # prior probability
             hypothesis[klass] = classes_counts[klass] / len(self.data)
 
-            # ''' posterior probabilities '''
+            # posterior probabilities
             for category, value in event.items():
-                hypothesis[klass] *= len(self.data[(self.data[category] == value) & (self.data[to_classify] == klass)])\
-                                     / classes_counts[klass]
+                if mu['A'].isin([category]).any() and sigma['A'].isin([category]).any():
+                    # Gaussian
+                    m = mu[mu['A'] == category][klass].values[0]
+                    s = sigma[sigma['A'] == category][klass].values[0]
+                    hypothesis[klass] *= numpy.exp((-numpy.power(float(event[category]) - m, 2)) / (2 * s)) / numpy.sqrt(2 * numpy.pi * s)
+                else:
+                    hypothesis[klass] *= len(self.data[(self.data[category] == value) & (self.data[to_classify] == klass)]) / classes_counts[klass]
 
-        # ''' normalisation '''
+        # normalisation
         hypothesis = {k: v / total for total in (sum(hypothesis.values()),) for k, v in hypothesis.items()}
 
         result = ""
