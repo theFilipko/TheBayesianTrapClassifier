@@ -117,7 +117,7 @@ class App:
         self.result_view_scroll.pack(side=tkinter.RIGHT, fill=tkinter.Y)
         self.result_view = tkinter.Text(self.result_view_frame,
                                         width=30,
-                                        height=5,
+                                        height=6,
                                         yscrollcommand=self.result_view_scroll.set)
         self.result_view.pack()
         self.result_view_frame.grid(row=0, column=1, rowspan=2, sticky=tkinter.NW, padx=10)

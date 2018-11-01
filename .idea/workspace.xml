@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eac4383a-f1cc-4fb4-9f70-5c519fb398c4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/loan.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sex.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/true_size.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.py" beforeDir="false" afterPath="$PROJECT_DIR$/App.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,14 +30,14 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="csv" value="7" />
-          <entry key="md" value="1" />
+          <entry key="md" value="2" />
           <entry key="py" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSV" value="7" />
-          <entry key="Markdown" value="1" />
+          <entry key="Markdown" value="2" />
           <entry key="Python" value="4" />
         </counts>
       </usages-collector>
@@ -48,14 +45,17 @@
         <counts>
           <entry key="Python Console" value="4130" />
           <entry key="csv" value="692" />
+          <entry key="dummy" value="21" />
+          <entry key="md" value="190" />
           <entry key="py" value="6922" />
-          <entry key="txt" value="143" />
+          <entry key="txt" value="158" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSV" value="692" />
-          <entry key="PLAIN_TEXT" value="143" />
+          <entry key="Markdown" value="190" />
+          <entry key="PLAIN_TEXT" value="179" />
           <entry key="Python" value="11052" />
         </counts>
       </usages-collector>
@@ -85,7 +85,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
@@ -98,8 +98,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="90">
+                <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vvv.py">
+        <entry file="file://$PROJECT_DIR$/autoscrollbarexample.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-45">
               <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
@@ -147,6 +159,7 @@
         <option value="$PROJECT_DIR$/btc.py" />
         <option value="$PROJECT_DIR$/vvv.py" />
         <option value="$PROJECT_DIR$/App.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -246,7 +259,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/vvv.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/autoscrollbarexample.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -286,7 +299,21 @@
       <option name="project" value="LOCAL" />
       <updated>1541022814071</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="GUI update">
+      <created>1541070300084</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1541070300084</updated>
+    </task>
+    <task id="LOCAL-00003" summary="GUI update">
+      <created>1541070354177</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1541070354177</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -319,7 +346,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Implemented numerical data processing based on Gaussian distro, the categorical table doesn't show numerical data properly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented numerical data processing based on Gaussian distro, the categorical table doesn't show numerical data properly" />
+    <MESSAGE value="GUI update" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -337,14 +365,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -367,7 +387,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vvv.py">
+    <entry file="file://$PROJECT_DIR$/autoscrollbarexample.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-45">
           <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
@@ -400,6 +420,16 @@
             <element signature="e#0#13#0" expanded="true" />
             <marker date="1541069537125" expanded="true" signature="8334:8564" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="90">
+            <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
